@@ -1,0 +1,62 @@
+<div *ngIf="open" class="modal-wrapper">
+
+  <!-- BACKDROP -->
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+
+  <!-- MODAL -->
+  <div class="modal-container">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <div>
+        <h3>เขียนคำร้อง</h3>
+        <p>กรอกข้อมูลเพื่อส่งคำร้อง</p>
+      </div>
+
+      <button class="close-btn" (click)="closeModal()">✕</button>
+    </div>
+
+    <!-- BODY -->
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label>เบอร์โทรศัพท์</label>
+        <input [(ngModel)]="phone" placeholder="กรอกเบอร์โทรศัพท์" />
+      </div>
+
+      <div class="form-group">
+        <label>เรื่อง</label>
+        <input [(ngModel)]="title" placeholder="ระบุเรื่อง" />
+      </div>
+
+      <div class="form-group">
+        <label>รายละเอียด</label>
+        <textarea [(ngModel)]="detail" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>แนบภาพ</label>
+
+        <div class="upload-box" (click)="openFile()">
+          <ng-container *ngIf="!previewUrl">
+            <i class="bi bi-cloud-upload"></i>
+            <span>กดเพื่อเพิ่มภาพ</span>
+          </ng-container>
+
+          <img *ngIf="previewUrl" [src]="previewUrl" />
+        </div>
+
+        <input type="file" hidden #fileInput (change)="onFileChange($event)" />
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <button class="btn-submit" (click)="submitForm()">
+        ส่งข้อมูล
+      </button>
+    </div>
+
+  </div>
+</div>

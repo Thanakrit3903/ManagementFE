@@ -1,0 +1,110 @@
+.payment-page {
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 1rem;
+
+  h2 {
+    margin: 0;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
+    color: #64748b;
+  }
+}
+
+.btn-back {
+  border: none;
+  background: none;
+  color: #2563eb;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+/* TABLE */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: left;
+    padding: 0.5rem;
+  }
+
+  td {
+    padding: 0.6rem;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+/* BUTTON */
+.btn-action {
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 0.8rem;
+}
+
+/* EMPTY */
+.empty-state {
+  text-align: center;
+  padding: 1.5rem;
+  color: #9ca3af;
+
+  i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 2rem;
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+  .card {
+    background: #111827;
+    color: #e5e7eb;
+  }
+
+  .modern-table th {
+    color: #94a3b8;
+  }
+
+  .modern-table td {
+    border-color: #374151;
+  }
+
+  .footer {
+    color: #94a3b8;
+  }
+}

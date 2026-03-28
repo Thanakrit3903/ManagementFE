@@ -1,0 +1,62 @@
+<div *ngIf="open" class="modal-root">
+
+  <!-- BACKDROP -->
+  <div class="backdrop" (click)="closeModal()"></div>
+
+  <!-- MODAL -->
+  <div class="modal-box">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div>
+        <h3>ค้นหาเจ้าของรถ</h3>
+        <p>บ้านเอื้ออาทรเทพารักษ์ 3/2</p>
+      </div>
+
+      <button class="close-btn" (click)="closeModal()">✕</button>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search">
+      <i class="bi bi-search"></i>
+      <input
+        [(ngModel)]="keyword"
+        placeholder="กรอกเลขทะเบียน"
+        (keyup.enter)="search()"
+      />
+      <button *ngIf="keyword" (click)="keyword=''">✕</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result">
+
+      <div class="row">
+        <span>หมวดทะเบียนรถ</span>
+        <strong>{{ result.province }}</strong>
+      </div>
+
+      <div class="row">
+        <span>โครงการ</span>
+        <strong>{{ result.project }}</strong>
+      </div>
+
+      <div class="row">
+        <span>ที่อยู่</span>
+        <strong>{{ result.address }}</strong>
+      </div>
+
+      <div class="row">
+        <span>ทะเบียน</span>
+        <strong>{{ result.plate }}</strong>
+      </div>
+
+      <div class="row">
+        <span>ลักษณะ</span>
+        <strong>{{ result.type }}</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

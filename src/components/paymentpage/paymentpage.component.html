@@ -1,0 +1,78 @@
+<div class="payment-page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">
+      <i class="bi bi-chevron-left"></i>
+      กลับ
+    </button>
+
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.address }}</p>
+  </div>
+
+  <!-- RECEIPT TABLE -->
+  <div class="card">
+    <div class="card-title">ใบเสร็จรับชำระ</div>
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>หมายเลข</th>
+          <th>วันที่</th>
+          <th>ยอดเงิน</th>
+          <th>ดำเนินการ</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="receipts.length; else empty1">
+        <tr *ngFor="let item of receipts">
+          <td>{{ item.no }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.amount }}</td>
+          <td>
+            <button class="btn-action">ดู</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #empty1>
+      <div class="empty-state">
+        <i class="bi bi-inbox"></i>
+        <p>ยังไม่มีข้อมูล</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- DETAIL TABLE -->
+  <div class="card">
+    <div class="card-title">รายละเอียดใบเสร็จรับชำระ</div>
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>รหัส</th>
+          <th>รายละเอียด</th>
+          <th>ยอดเงิน</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="receiptDetails.length; else empty2">
+        <tr *ngFor="let item of receiptDetails">
+          <td>{{ item.code }}</td>
+          <td>{{ item.desc }}</td>
+          <td>{{ item.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #empty2>
+      <div class="empty-state">
+        <i class="bi bi-file-earmark-text"></i>
+        <p>ไม่มีรายละเอียด</p>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

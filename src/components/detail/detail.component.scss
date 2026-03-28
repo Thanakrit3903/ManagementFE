@@ -1,0 +1,129 @@
+.detail-page {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 1rem;
+}
+
+.btn-back {
+  border: none;
+  background: none;
+  color: #2563eb;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-weight: 800;
+}
+
+.user-info p {
+  margin: 0;
+  color: #64748b;
+}
+
+/* BALANCE CARD */
+.balance-card {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border-radius: 20px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 1.2rem;
+}
+
+.balance-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.balance-amount {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0.4rem 0 1rem;
+}
+
+.btn-transfer {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 0.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6d28d9, #4f46e5);
+  color: white;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+/* TABLE */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    font-size: 0.85rem;
+    color: #64748b;
+    padding: 0.5rem 0;
+  }
+
+  td {
+    padding: 0.6rem 0;
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+/* EMPTY */
+.empty-state {
+  text-align: center;
+  padding: 1rem;
+  color: #9ca3af;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 2rem;
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+  .card {
+    background: #111827;
+    color: #e5e7eb;
+  }
+
+  .modern-table th {
+    color: #94a3b8;
+  }
+
+  .modern-table td {
+    border-color: #374151;
+  }
+
+  .footer {
+    color: #94a3b8;
+  }
+}

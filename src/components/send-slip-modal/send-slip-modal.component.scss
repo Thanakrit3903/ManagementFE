@@ -1,0 +1,158 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 500px;
+  background: white;
+  border-radius: 20px;
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeUp 0.25s ease;
+}
+
+/* HEADER */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.btn-close {
+  border: none;
+  background: none;
+}
+
+/* BODY */
+.modal-body {
+  padding: 1rem;
+}
+
+/* BANK */
+.bank-card {
+  display: flex;
+  gap: 1rem;
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 14px;
+}
+
+.bank-icon {
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.account-no {
+  font-weight: bold;
+}
+
+/* BUTTON COPY */
+.btn-copy {
+  width: 100%;
+  margin-top: 0.7rem;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 10px;
+  background: #22c55e;
+  color: white;
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* UPLOAD */
+.upload-box {
+  margin-top: 1rem;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  text-align: center;
+  padding: 2rem;
+  cursor: pointer;
+
+  i {
+    font-size: 2rem;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+  }
+}
+
+/* UPLOAD BTN */
+.btn-upload {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 12px;
+  background: #22c55e;
+  color: white;
+  font-weight: bold;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #22c55e;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  z-index: 2000;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  .modal-box {
+    background: #111827;
+    color: white;
+  }
+
+  .bank-card {
+    background: #1f2937;
+  }
+
+  .input {
+    background: #1f2937;
+    color: white;
+  }
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

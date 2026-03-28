@@ -1,0 +1,75 @@
+<div class="backdrop" *ngIf="open" (click)="closeModal()"></div>
+
+<div class="modal-box" *ngIf="open">
+
+  <!-- HEADER -->
+  <div class="modal-header">
+    <div>
+      <div class="title">ส่งสลิปโอนเงิน</div>
+      <div class="subtitle">กรุณาแนบสลิป</div>
+    </div>
+
+    <button class="btn-close" (click)="closeModal()">✕</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="modal-body">
+
+    <!-- BANK INFO -->
+    <div class="bank-card">
+      <div class="bank-icon">
+        <i class="bi bi-bank"></i>
+      </div>
+
+      <div>
+        <div class="fw-bold">{{ accountName }}</div>
+        <div class="text-muted small">{{ userName }}</div>
+        <div class="account-no">{{ accountNo }}</div>
+      </div>
+    </div>
+
+    <button class="btn-copy" (click)="copyAccountNumber()">
+      <i class="bi bi-clipboard"></i>
+      คัดลอก
+    </button>
+
+    <!-- PHONE -->
+    <input
+      type="tel"
+      class="input"
+      placeholder="เบอร์โทรศัพท์"
+      [(ngModel)]="phone"
+    />
+
+    <!-- UPLOAD -->
+    <div class="upload-box" (click)="openFilePicker()">
+      <ng-container *ngIf="!previewUrl; else preview">
+        <i class="bi bi-cloud-upload"></i>
+        <div>กดเพื่อเพิ่มภาพ</div>
+      </ng-container>
+
+      <ng-template #preview>
+        <img [src]="previewUrl" />
+      </ng-template>
+    </div>
+
+    <input
+      type="file"
+      #fileInput
+      hidden
+      (change)="onFileChange($event)"
+    />
+
+    <button class="btn-upload" (click)="submit()">
+      อัปโหลด
+    </button>
+
+  </div>
+</div>
+
+<!-- 🔔 TOAST -->
+<div class="toast" *ngIf="showToastFlag">
+  {{ toastMessage }}
+</div>
+
+<div>{{ showToastFlag }}</div>

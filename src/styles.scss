@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/scss/bootstrap' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.toast-container .ngx-toastr {
+  border-radius: 14px !important;
+  padding: 12px 16px !important;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #16a34a, #22c55e) !important;
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+}
+
+.toast-warning {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+}

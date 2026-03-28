@@ -1,0 +1,506 @@
+// ─── Design Tokens ───────────────────────────────────────────────────────────
+$pink:        #ff00cc;
+$pink-dark:   #cc009f;
+$pink-soft:   #ff44dd;
+$pink-glow:   rgba(255, 0, 204, 0.18);
+$pink-glass:  rgba(255, 0, 204, 0.08);
+
+$blue:        #2563eb;
+$blue-dark:   #1d4ed8;
+
+$success:     #10b981;
+$error:       #ef4444;
+$error-light: rgba(239, 68, 68, 0.1);
+
+$white:       #ffffff;
+$glass-bg:    rgba(255, 255, 255, 0.72);
+$glass-border: rgba(255, 255, 255, 0.5);
+$text-dark:   #111827;
+$text-mid:    #374151;
+$text-muted:  #6b7280;
+$text-light:  #9ca3af;
+
+$radius-card: 24px;
+$radius-btn:  14px;
+$radius-input:12px;
+
+// ─── Host ─────────────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+}
+
+// ─── Page / Background ────────────────────────────────────────────────────────
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fce4ff 0%, #f0e6ff 35%, #ffe4f8 65%, #ffeef8 100%);
+}
+
+// ─── Animated blobs ───────────────────────────────────────────────────────────
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite;
+}
+.blob-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #ff88ee, #cc00ff);
+  top: -120px; left: -100px;
+  animation-duration: 12s;
+}
+.blob-2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, #ffaaff, #ff44cc);
+  bottom: -80px; right: -80px;
+  animation-duration: 9s;
+  animation-delay: -4s;
+}
+.blob-3 {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, #b3aaff, #7744ff);
+  top: 40%; left: 60%;
+  animation-duration: 14s;
+  animation-delay: -7s;
+  opacity: 0.3;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(18px, -24px) scale(1.04); }
+  66%       { transform: translate(-14px, 12px) scale(0.97); }
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: $glass-bg;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid $glass-border;
+  border-radius: $radius-card;
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.06),
+    0 20px 60px rgba(255, 0, 204, 0.12),
+    0 0 0 1px rgba(255,255,255,0.6) inset;
+  animation: card-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  overflow: hidden;
+
+  @media (max-width: 480px) {
+    border-radius: 20px;
+  }
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(32px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+// ─── Top accent bar ───────────────────────────────────────────────────────────
+.card-bar {
+  height: 5px;
+  background: linear-gradient(90deg, $pink 0%, #ff77ee 50%, #aa44ff 100%);
+  border-radius: $radius-card $radius-card 0 0;
+}
+
+// ─── Card body ────────────────────────────────────────────────────────────────
+.card-body {
+  padding: 32px 36px 28px;
+
+  @media (max-width: 480px) {
+    padding: 24px 20px 20px;
+  }
+  @media (min-width: 768px) {
+    padding: 36px 44px 32px;
+  }
+}
+
+// ─── Brand / Logo ─────────────────────────────────────────────────────────────
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+  animation: slide-in 0.5s 0.1s ease both;
+
+  @media (max-width: 360px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.logo-wrap {
+  flex-shrink: 0;
+  width: 80px; height: 48px;
+  background: $white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  box-shadow: 0 2px 16px $pink-glow, 0 0 0 1.5px rgba(255,0,204,0.15);
+
+  @media (max-width: 480px) {
+    width: 70px; height: 42px;
+  }
+}
+
+.logo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: $text-dark;
+  line-height: 1.3;
+  margin-bottom: 4px;
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+  }
+}
+
+.company-name {
+  font-size: 12px;
+  color: #8b44cc;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 480px) {
+    font-size: 11px;
+    white-space: normal;
+  }
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  animation: slide-in 0.5s 0.15s ease both;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,0,204,0.25), transparent);
+}
+
+.divider-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text-light;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+// ─── Instructions ─────────────────────────────────────────────────────────────
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  animation: slide-in 0.5s 0.2s ease both;
+}
+
+.instruction-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: $text-mid;
+  line-height: 1.6;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  background: linear-gradient(135deg, $pink, $pink-dark);
+  color: $white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  box-shadow: 0 2px 8px $pink-glow;
+}
+
+.code-example {
+  font-weight: 700;
+  color: $pink-dark;
+  background: rgba(255, 0, 204, 0.08);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+}
+
+// ─── Form & Field ─────────────────────────────────────────────────────────────
+form {
+  animation: slide-in 0.5s 0.25s ease both;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-mid;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px; height: 18px;
+  color: $text-light;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-check {
+  position: absolute;
+  right: 14px;
+  width: 18px; height: 18px;
+  color: $success;
+  pointer-events: none;
+  animation: pop-in 0.25s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.input {
+  width: 100%;
+  padding: 14px 44px;
+  font-size: 16px;
+  font-family: inherit;
+  color: $text-dark;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(255, 0, 204, 0.2);
+  border-radius: $radius-input;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+  -webkit-appearance: none;
+  letter-spacing: 0.05em;
+
+  &::placeholder {
+    color: $text-light;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.1em;
+  }
+
+  &:focus {
+    background: $white;
+    border-color: $pink;
+    box-shadow: 0 0 0 4px rgba(255, 0, 204, 0.12);
+
+    & ~ .input-icon,
+    + .input-icon { color: $pink; }
+  }
+
+  .field--error & {
+    border-color: $error;
+    box-shadow: 0 0 0 4px $error-light;
+    background: rgba(255,255,255,0.95);
+  }
+
+  .field--valid & {
+    border-color: $success;
+  }
+}
+
+// Fix icon color on focus (sibling trick)
+.input:focus ~ .input-icon { color: $pink; }
+.field--error .input-icon { color: $error; }
+
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  font-size: 12.5px;
+  color: $error;
+  font-weight: 500;
+  animation: shake 0.3s ease;
+
+  svg {
+    flex-shrink: 0;
+    width: 14px; height: 14px;
+  }
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%      { transform: translateX(-4px); }
+  75%      { transform: translateX(4px); }
+}
+
+.alert-error {
+  background: $error-light;
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: $error;
+  margin-bottom: 16px;
+}
+
+// ─── Login Button ─────────────────────────────────────────────────────────────
+.btn-login {
+  width: 100%;
+  padding: 15px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  color: $white;
+  background: linear-gradient(135deg, $pink 0%, #cc44ff 100%);
+  border: none;
+  border-radius: $radius-btn;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s;
+  box-shadow: 0 4px 20px rgba(255, 0, 204, 0.4), 0 1px 3px rgba(0,0,0,0.1);
+  letter-spacing: 0.04em;
+
+  svg {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    border-radius: inherit;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(255, 0, 204, 0.5), 0 2px 6px rgba(0,0,0,0.1);
+
+    svg { transform: translateX(3px); }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0px);
+    box-shadow: 0 2px 10px rgba(255, 0, 204, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// Spinner
+.spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.35);
+  border-top-color: $white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+// ─── Card Footer ──────────────────────────────────────────────────────────────
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px 16px;
+  border-top: 1px solid rgba(255, 0, 204, 0.1);
+  background: rgba(255,255,255,0.35);
+  font-size: 12.5px;
+  color: $text-muted;
+
+  svg {
+    width: 14px; height: 14px;
+    color: $pink;
+    flex-shrink: 0;
+  }
+
+  strong {
+    color: $text-dark;
+    font-weight: 700;
+  }
+}
+
+// ─── Shared animation ─────────────────────────────────────────────────────────
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Tablet ───────────────────────────────────────────────────────────────────
+@media (min-width: 768px) {
+  .page {
+    padding: 40px 24px;
+  }
+
+  .card {
+    max-width: 520px;
+  }
+
+  .project-name {
+    font-size: 18px;
+  }
+}
+
+// ─── Desktop ──────────────────────────────────────────────────────────────────
+@media (min-width: 1024px) {
+  .page {
+    background: linear-gradient(135deg, #fce4ff 0%, #f0e6ff 40%, #ffe4f8 70%, #ffeef8 100%);
+  }
+
+  .card {
+    max-width: 480px;
+  }
+}

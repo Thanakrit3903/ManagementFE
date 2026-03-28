@@ -1,0 +1,147 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.main-content {
+  min-height: 100vh;
+  padding: 1rem;
+  padding-left: 1rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  margin-bottom: 1rem;
+}
+
+.btn-menu {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+.page-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.app-tile {
+  border: 0;
+  border-radius: 24px;
+  padding: 1rem;
+  min-height: 128px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14);
+    filter: brightness(1.03);
+  }
+}
+
+.tile-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 0.75rem;
+
+  i {
+    font-size: 1.3rem;
+  }
+}
+
+.tile-body {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.tile-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.tile-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.tile-blue {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.tile-purple {
+  background: linear-gradient(135deg, #6d28d9, #4f46e5);
+}
+
+.tile-slate {
+  background: linear-gradient(135deg, #475569, #334155);
+}
+
+.tile-orange {
+  background: linear-gradient(135deg, #d97706, #b45309);
+}
+
+.tile-green {
+  background: linear-gradient(135deg, #15803d, #166534);
+}
+
+.dark-mode {
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+
+  .topbar {
+    background: rgba(15, 23, 42, 0.72);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .page-title {
+    color: #e5e7eb;
+  }
+
+  .page-subtitle {
+    color: #94a3b8;
+  }
+}

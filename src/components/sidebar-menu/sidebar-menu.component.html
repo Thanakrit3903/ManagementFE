@@ -1,0 +1,83 @@
+<div class="sidebar-backdrop" [class.show]="open" (click)="close()"></div>
+
+<aside class="sidebar-drawer" [class.open]="open" [class.dark-theme]="darkMode">
+  <div class="sidebar-header">
+    <div class="brand-row">
+      <div class="brand-logo">
+        <i class="bi bi-grid-fill"></i>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">My Application</div>
+        <div class="brand-sub">Classic modern menu</div>
+      </div>
+
+      <button type="button" class="btn-close-drawer ms-auto" (click)="close()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <div class="profile-row">
+      <div class="profile-avatar">
+        <i class="bi bi-person-fill"></i>
+      </div>
+
+      <div class="profile-info">
+        <div class="profile-name">ข้อมูลที่อยู่ 000-00</div>
+        <div class="profile-desc">User Profile</div>
+      </div>
+    </div>
+
+    <div class="theme-row">
+      <div class="theme-left">
+        <div class="theme-icon">
+          <i class="bi bi-moon-stars-fill"></i>
+        </div>
+        <div>
+          <div class="theme-title">โหมดกลางคืน</div>
+          <div class="theme-subtitle">ปรับมุมมองสบายตา</div>
+        </div>
+      </div>
+
+      <div class="form-check form-switch m-0">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [checked]="darkMode"
+          (change)="toggleDarkMode()"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-content">
+    <div class="menu-label">เมนูหลัก</div>
+
+    <div class="menu-list">
+      <button
+        *ngFor="let item of items"
+        type="button"
+        class="menu-item"
+        [ngClass]="item.gradientClass"
+        (click)="selectItem(item.id)"
+      >
+        <div class="menu-icon">
+          <i [class]="item.icon"></i>
+        </div>
+
+        <div class="menu-text">
+          <div class="menu-title">{{ item.label }}</div>
+          <div class="menu-subtitle">{{ item.subtitle }}</div>
+        </div>
+
+        <i class="bi bi-chevron-right menu-chevron"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <button type="button" class="logout-btn">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>ออกจากระบบ</span>
+    </button>
+  </div>
+</aside>

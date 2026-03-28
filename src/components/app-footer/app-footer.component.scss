@@ -1,0 +1,85 @@
+.footer {
+  background: #ffffff;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #e5e7eb;
+
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* CONTACT */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .label {
+    font-size: 0.75rem;
+    color: #6b7280;
+  }
+
+  strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .phone {
+    font-size: 0.9rem;
+    color: #2563eb;
+    font-weight: 500;
+  }
+}
+
+/* DIVIDER */
+.divider {
+  width: 40px;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 6px auto;
+  border-radius: 999px;
+}
+
+/* APP INFO */
+.app-info {
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  strong {
+    font-size: 0.9rem;
+    color: #111827;
+  }
+}
+
+/* 🌙 DARK MODE */
+body.dark-mode {
+  .footer {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .label,
+  .app-info p {
+    color: #9ca3af;
+  }
+
+  strong {
+    color: #f9fafb;
+  }
+
+  .phone {
+    color: #60a5fa;
+  }
+}

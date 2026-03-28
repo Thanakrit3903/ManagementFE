@@ -1,0 +1,40 @@
+<ng-container *ngIf="open">
+
+  <!-- BACKDROP -->
+  <div class="backdrop" (click)="closeModal()"></div>
+
+  <!-- MODAL -->
+  <div class="bottom-sheet">
+
+    <!-- DRAG BAR -->
+    <div class="drag-bar"></div>
+
+    <!-- HEADER -->
+    <div class="header">
+      <h5>แจ้งเหตุ/ขอความช่วยเหลือด่วน</h5>
+      <p>กรุณากรอกข้อมูลเพื่อให้เจ้าหน้าที่ติดต่อกลับ</p>
+    </div>
+
+    <!-- INPUT -->
+    <div class="form-group">
+      <label>เบอร์โทรศัพท์</label>
+      <input
+        type="tel"
+        placeholder="กรอกเบอร์โทรศัพท์"
+        [(ngModel)]="phone"
+      />
+    </div>
+
+    <!-- ACTION -->
+    <div class="actions">
+      <button class="btn-primary" (click)="submitRequest()">
+        ขอความช่วยเหลือ
+      </button>
+
+      <button class="btn-danger" (click)="closeModal()">
+        ปิด
+      </button>
+    </div>
+
+  </div>
+</ng-container>

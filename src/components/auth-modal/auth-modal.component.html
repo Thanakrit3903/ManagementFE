@@ -1,0 +1,25 @@
+<div *ngIf="open" class="modal-root">
+
+  <!-- backdrop -->
+  <div class="backdrop" (click)="onClose()"></div>
+
+  <!-- modal -->
+  <div class="modal-box">
+
+    <h3>🔐 ตรวจสอบข้อมูล</h3>
+
+    <input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="กรอกรหัสผ่าน"
+      (keyup.enter)="onConfirm()"
+    />
+
+    <div class="actions">
+      <button class="confirm" (click)="onConfirm()">ยืนยัน</button>
+      <button class="cancel" (click)="onClose()">ยกเลิก</button>
+    </div>
+
+  </div>
+
+</div>

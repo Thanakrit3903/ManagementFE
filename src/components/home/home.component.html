@@ -1,0 +1,76 @@
+<div class="app-shell" [class.dark-mode]="darkMode">
+  <app-sidebar-menu
+    [open]="sidebarOpen"
+    [darkMode]="darkMode"
+    (openChange)="sidebarOpen = $event"
+    (darkModeChange)="darkMode = $event"
+    (menuClick)="onMenuClick($event)"></app-sidebar-menu>
+
+  <main class="main-content">
+    <div class="topbar">
+      <button type="button" class="btn btn-menu" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div>
+        <div class="page-title">Application Menu</div>
+        <div class="page-subtitle">Classic mobile-style interface</div>
+      </div>
+    </div>
+
+    <section class="menu-grid">
+      <button
+        *ngFor="let item of menuItems"
+        type="button"
+        class="app-tile"
+        [ngClass]="item.bgClass"
+        (click)="onMenuClick(item.id)">
+        <div class="tile-icon">
+          <i [class]="item.icon"></i>
+        </div>
+
+        <div class="tile-body">
+          <div class="tile-title">{{ item.title }}</div>
+          <div class="tile-subtitle">{{ item.subtitle }}</div>
+        </div>
+      </button>
+    </section>
+  </main>
+</div>
+
+<!-- Slip Modal -->
+<app-send-slip-modal
+  *ngIf="slipModalOpen"
+  [open]="slipModalOpen"
+  [accountName]="'ธนาคาร : ธนาคาร กรุงเทพฯ'"
+  [accountNo]="'เลขบัญชี : 1995478318'"
+  [userName]="user.address"
+  (close)="closeSlipModal()"
+  (submitSlip)="onSlipSubmit($event)"></app-send-slip-modal>
+
+<!-- Report Modal -->
+<app-report-modal
+  *ngIf="reportModalOpen"
+  [open]="reportModalOpen"
+  (close)="closeReportModal()"
+  (submit)="onReportSubmit($event)"></app-report-modal>
+
+<!-- Request Modal -->
+<app-request-modal
+  *ngIf="requestModalOpen"
+  [open]="requestModalOpen"
+  (close)="closeRequestModal()"
+  (submit)="onRequestSubmit($event)"></app-request-modal>
+
+<!-- Plate Check Modal -->
+<app-plate-check-modal
+  *ngIf="openPlate"
+  [open]="openPlate"
+  (close)="closePlateCheck()"></app-plate-check-modal>
+  
+<!-- Auth Info Modal -->
+<app-auth-modal
+  *ngIf="openAuthInfos"
+  [open]="openAuthInfos"
+  (close)="closeAuthInfo()"
+  (confirmAction)="onAuthInfoConfirm($event)"></app-auth-modal>

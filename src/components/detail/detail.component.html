@@ -1,0 +1,92 @@
+<div class="detail-page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">
+      <i class="bi bi-chevron-left"></i>
+      กลับ
+    </button>
+
+    <div class="user-info">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.address }}</p>
+    </div>
+  </div>
+
+  <!-- BALANCE CARD -->
+  <div class="balance-card">
+    <div class="balance-label">ส่วนกลางนิติบุคคล</div>
+    <div class="balance-amount">{{ user.balance }} บาท</div>
+
+    <button class="btn-transfer" (click)="openSlipModal()">
+      <i class="bi bi-file-earmark-arrow-up"></i>
+      ส่งสลิปโอนเงิน
+    </button>
+  </div>
+
+  <!-- TABLE 1 -->
+  <div class="card">
+    <div class="card-title">ใบแจ้งหนี้</div>
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>หมายเลข</th>
+          <th>วันที่</th>
+          <th>ยอดเงิน</th>
+          <th>ดำเนินการ</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="invoices.length; else empty1">
+        <tr *ngFor="let item of invoices">
+          <td>{{ item.no }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.amount }}</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #empty1>
+      <div class="empty-state">No data available</div>
+    </ng-template>
+  </div>
+
+  <!-- TABLE 2 -->
+  <div class="card">
+    <div class="card-title">รายละเอียดใบแจ้งหนี้</div>
+
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>รหัส</th>
+          <th>รายละเอียด</th>
+          <th>ยอดเงิน</th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="invoiceDetails.length; else empty2">
+        <tr *ngFor="let item of invoiceDetails">
+          <td>{{ item.code }}</td>
+          <td>{{ item.desc }}</td>
+          <td>{{ item.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #empty2>
+      <div class="empty-state">No data available</div>
+    </ng-template>
+  </div>
+
+  <app-send-slip-modal
+    *ngIf="slipModalOpen"
+    [open]="slipModalOpen"
+    [accountName]="'ธนาคาร : ธนาคาร กรุงเทพฯ'"
+    [accountNo]="'เลขบัญชี : 1995478318'"
+    [userName]="user.address"
+    (close)="closeSlipModal()"
+    (submitSlip)="onSlipSubmit($event)"></app-send-slip-modal>
+
+</div>
