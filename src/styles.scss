@@ -41,3 +41,30 @@ html, body {
 .toast-warning {
   background: linear-gradient(135deg, #d97706, #f59e0b) !important;
 }
+
+body.dark {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* sidebar */
+body.dark .sidebar-drawer {
+  background: #111827;
+  color: #fff;
+}
+
+/* card */
+body.dark .card {
+  background: #1e293b;
+}
+
+/* button */
+body.dark .logout-btn {
+  background: #1f2937;
+  color: #fff;
+}
+
+body.dark .modal-content {
+  background: #1e293b;
+  color: #fff;
+}

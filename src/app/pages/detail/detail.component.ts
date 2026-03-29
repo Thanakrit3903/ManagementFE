@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SendSlipModalComponent } from '../send-slip-modal/send-slip-modal.component';
+import { SendSlipModalComponent } from '../../components/send-slip-modal/send-slip-modal.component';
 
 @Component({
   selector: 'app-detail',

@@ -1,10 +1,12 @@
 <div class="app-shell" [class.dark-mode]="darkMode">
-  <app-sidebar-menu
+  <!-- <app-sidebar-menu
     [open]="sidebarOpen"
     [darkMode]="darkMode"
     (openChange)="sidebarOpen = $event"
     (darkModeChange)="darkMode = $event"
-    (menuClick)="onMenuClick($event)"></app-sidebar-menu>
+    (menuClick)="onMenuClick($event)"></app-sidebar-menu> -->
+  <app-sidebar-menu [isOpen]="sidebarOpen" (onClose)="closeSidebar()">
+  </app-sidebar-menu>
 
   <main class="main-content">
     <div class="topbar">
@@ -67,7 +69,7 @@
   *ngIf="openPlate"
   [open]="openPlate"
   (close)="closePlateCheck()"></app-plate-check-modal>
-  
+
 <!-- Auth Info Modal -->
 <app-auth-modal
   *ngIf="openAuthInfos"

@@ -74,7 +74,7 @@
 }
 
 .sidebar-header {
-  padding: 1rem 1rem 0.85rem;
+  // padding: 1rem 1rem 0.85rem;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
@@ -295,8 +295,8 @@
 }
 
 .sidebar-footer {
-  padding: 1rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 2rem;
+  // border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
 .logout-btn {
@@ -312,4 +312,15 @@
   gap: 0.55rem;
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
   font-weight: 700;
+}
+
+.sidebar-top {
+  flex: 1; /* ดันให้กินพื้นที่ทั้งหมด */
+  padding: 16px;
+}
+
+/* ด้านล่าง */
+.sidebar-bottom {
+  // padding: 16px;
+  // border-top: 1px solid #ddd;
 }

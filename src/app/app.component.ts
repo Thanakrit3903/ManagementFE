@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppFooterComponent } from '../components/app-footer/app-footer.component';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppFooterComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'ManagementFE';
+
+  constructor(private theme: ThemeService) {}
+
+  ngOnInit() {
+    this.theme.init();
+  }
 }

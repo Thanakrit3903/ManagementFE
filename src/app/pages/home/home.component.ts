@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component';
 import { AppMenuItem } from '../../models/actionItem';
 import { Router } from '@angular/router';
-import { SendSlipModalComponent } from '../send-slip-modal/send-slip-modal.component';
 import { ToastrService } from 'ngx-toastr';
-import { ReportModalComponent } from '../report-modal/report-modal.component';
-import { RequestModalComponent } from '../request-modal/request-modal.component';
-import { PlateCheckModalComponent } from '../plate-check-modal/plate-check-modal.component';
-import { AuthModalComponent } from '../auth-modal/auth-modal.component';
+import { SidebarMenuComponent } from '../../shared/components/sidebar-menu/sidebar-menu.component';
+import { AuthModalComponent } from '../../components/auth-modal/auth-modal.component';
+import { PlateCheckModalComponent } from '../../components/plate-check-modal/plate-check-modal.component';
+import { ReportModalComponent } from '../../components/report-modal/report-modal.component';
+import { RequestModalComponent } from '../../components/request-modal/request-modal.component';
+import { SendSlipModalComponent } from '../../components/send-slip-modal/send-slip-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -57,7 +57,7 @@ export class HomeComponent {
       bgClass: 'tile-slate',
     },
     {
-      id: 'paymentpage',
+      id: 'payment',
       title: 'รายละเอียดการชำระเงิน',
       subtitle: 'ดูประวัติและสถานะการชำระเงิน',
       icon: 'bi bi-cash-coin',
@@ -109,29 +109,32 @@ export class HomeComponent {
     this.sidebarOpen = !this.sidebarOpen;
   }
 
+  closeSidebar() {
+    this.sidebarOpen = false;
+  }
+
   onMenuClick(id: string) {
-    console.log('clicked:', id);
-    if (['transfer'].includes(id)) {
-      this.openSlipModal();
-      return;
-    } else if (['copyAccount'].includes(id)) {
-      this.copyAccountNumber();
-      return;
-    } else if (['report'].includes(id)) {
-      this.openReportModal();
-      return;
-    } 
-    else if (['request'].includes(id)) {
-      this.openRequestModal();
-      return;
-    } else if (['plateCheck'].includes(id)) {
-      this.openPlateCheck();
-      return;
-    } else if (['authInfo'].includes(id)) {
-      this.openAuthInfo();
-      return;
-    } else {
-      this.router.navigate([`/${id.toLowerCase()}`]);
+    switch (id) {
+      case 'transfer':
+        this.openSlipModal();
+        break;
+      case 'copyAccount':
+        this.copyAccountNumber();
+        break;
+      case 'report':
+        this.openReportModal();
+        break;
+      case 'request':
+        this.openRequestModal();
+        break;
+      case 'plateCheck':
+        this.openPlateCheck();
+        break;
+      case 'authInfo':
+        this.openAuthInfo();
+        break;
+      default:
+        this.router.navigate([`/${id.toLowerCase()}`]);
     }
   }
 
@@ -195,7 +198,7 @@ export class HomeComponent {
   openAuthInfo() {
     this.openAuthInfos = true;
   }
-  
+
   closeAuthInfo() {
     this.openAuthInfos = false;
   }

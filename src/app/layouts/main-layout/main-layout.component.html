@@ -1,0 +1,25 @@
+<div class="layout">
+
+  <!-- <app-sidebar-menu [isOpen]="sidebarOpen" (onClose)="closeSidebar()">
+  </app-sidebar-menu> -->
+
+  <div class="main">
+
+    <!-- header with hamburger -->
+    <!-- <header class="main-header">
+      <button class="hamburger-btn" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+    </header> -->
+
+    <!-- content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!-- footer -->
+    <app-app-footer></app-app-footer>
+
+  </div>
+
+</div>
