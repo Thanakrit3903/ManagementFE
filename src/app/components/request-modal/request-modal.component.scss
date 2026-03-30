@@ -119,18 +119,54 @@
 }
 
 /* DARK MODE */
-body.dark-mode {
-  .modal-container {
-    background: #111827;
-    color: #e5e7eb;
-  }
+// body.dark-mode {
+//   .modal-container {
+//     background: #111827;
+//     color: #e5e7eb;
+//   }
 
-  input,
-  textarea {
-    background: #1f2937;
-    color: white;
-    border-color: #374151;
-  }
+//   input,
+//   textarea {
+//     background: #1f2937;
+//     color: white;
+//     border-color: #374151;
+//   }
+// }
+:host-context(body.dark) .modal-container {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+:host-context(body.dark) .modal-header {
+  border-bottom: 1px solid #374151;
+}
+
+:host-context(body.dark) .modal-header p {
+  color: #9ca3af;
+}
+
+:host-context(body.dark) input,
+:host-context(body.dark) textarea {
+  background: #1f2937;
+  color: #ffffff;
+  border: 1px solid #374151;
+}
+
+:host-context(body.dark) input::placeholder {
+  color: #6b7280;
+}
+
+:host-context(body.dark) .upload-box {
+  border-color: #475569;
+  color: #cbd5f5;
+}
+
+:host-context(body.dark) .btn-submit {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+:host-context(body.dark) .modal-backdrop {
+  background: rgba(0, 0, 0, 0.65);
 }
 
 /* ANIMATION */

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-report-modal',
@@ -15,6 +16,13 @@ export class ReportModalComponent {
   @Output() submit = new EventEmitter<any>();
 
   phone = '';
+  darkMode = false;
+
+  constructor(public theme: ThemeService) {}
+
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   closeModal() {
     this.close.emit();

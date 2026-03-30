@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-send-slip-modal',
@@ -37,10 +38,17 @@ export class SendSlipModalComponent {
   toastMessage = '';
   showToastFlag = false;
 
+  darkMode = false;
+
   constructor(
     private cdr: ChangeDetectorRef,
     private toastr: ToastrService,
+    public theme: ThemeService
   ) {}
+
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   /* ---------------- CLOSE ---------------- */
   closeModal() {

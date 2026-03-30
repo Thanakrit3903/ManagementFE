@@ -123,3 +123,50 @@
     transform: translateY(0);
   }
 }
+
+// dark mode
+:host-context(body.dark) .modal-box {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+:host-context(body.dark) .header h3 {
+  color: #f9fafb;
+}
+
+:host-context(body.dark) .header p {
+  color: #9ca3af;
+}
+
+:host-context(body.dark) .search {
+  background: #1f2937;
+}
+
+:host-context(body.dark) .search input {
+  color: #ffffff;
+}
+
+:host-context(body.dark) .search input::placeholder {
+  color: #6b7280;
+}
+
+:host-context(body.dark) .row {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+
+:host-context(body.dark) .row span {
+  color: #9ca3af;
+}
+
+:host-context(body.dark) .row strong {
+  color: #f3f4f6;
+}
+
+:host-context(body.dark) .close-btn {
+  background: #dc2626;
+}
+
+:host-context(body.dark) .backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}

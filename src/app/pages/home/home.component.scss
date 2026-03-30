@@ -129,19 +129,48 @@
   background: linear-gradient(135deg, #15803d, #166534);
 }
 
-.dark-mode {
+// .dark-mode {
+//   background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+
+//   .topbar {
+//     background: rgba(15, 23, 42, 0.72);
+//     border-color: rgba(255, 255, 255, 0.08);
+//   }
+
+//   .page-title {
+//     color: #e5e7eb;
+//   }
+
+//   .page-subtitle {
+//     color: #94a3b8;
+//   }
+// }
+
+// body.dark .app-shell {
+//   background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+// }
+
+// body.dark .topbar {
+//   background: rgba(15, 23, 42, 0.72);
+// }
+
+// body.dark .page-title {
+//   color: #e5e7eb;
+// }
+
+:host-context(body.dark) .app-shell {
   background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+}
 
-  .topbar {
-    background: rgba(15, 23, 42, 0.72);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
+:host-context(body.dark) .topbar {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+}
 
-  .page-title {
-    color: #e5e7eb;
-  }
+:host-context(body.dark) .page-title {
+  color: #e5e7eb;
+}
 
-  .page-subtitle {
-    color: #94a3b8;
-  }
+:host-context(body.dark) .page-subtitle {
+  color: #94a3b8;
 }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-paymentpage',
@@ -16,6 +17,13 @@ export class PaymentpageComponent {
 
   receipts: any[] = [];
   receiptDetails: any[] = [];
+  darkMode = false;
+
+  constructor(public theme: ThemeService) {}
+  
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   goBack() {
     history.back();

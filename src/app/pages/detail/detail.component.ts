@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SendSlipModalComponent } from '../../components/send-slip-modal/send-slip-modal.component';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-detail',
@@ -21,6 +22,12 @@ export class DetailComponent {
   sidebarOpen = false;
   darkMode = false;
   slipModalOpen = false;
+
+  constructor(public theme: ThemeService) {}
+
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   goBack() {
     history.back();

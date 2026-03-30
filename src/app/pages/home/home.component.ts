@@ -9,6 +9,7 @@ import { PlateCheckModalComponent } from '../../components/plate-check-modal/pla
 import { ReportModalComponent } from '../../components/report-modal/report-modal.component';
 import { RequestModalComponent } from '../../components/request-modal/request-modal.component';
 import { SendSlipModalComponent } from '../../components/send-slip-modal/send-slip-modal.component';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -103,7 +104,12 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private toastr: ToastrService,
+    public theme: ThemeService
   ) {}
+
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;

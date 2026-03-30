@@ -1,6 +1,6 @@
 <div class="sidebar-backdrop" [class.show]="isOpen" (click)="close()"></div>
 
-<aside class="sidebar-drawer" [class.open]="isOpen" [class.dark-theme]="darkMode">
+<aside class="sidebar-drawer" [class.open]="isOpen" [class.dark-theme]="theme.isDark()">
   <!-- Sidebar Header -->
   <div class="sidebar-top">
     <div class="sidebar-header">

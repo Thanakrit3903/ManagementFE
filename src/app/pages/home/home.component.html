@@ -1,10 +1,4 @@
-<div class="app-shell" [class.dark-mode]="darkMode">
-  <!-- <app-sidebar-menu
-    [open]="sidebarOpen"
-    [darkMode]="darkMode"
-    (openChange)="sidebarOpen = $event"
-    (darkModeChange)="darkMode = $event"
-    (menuClick)="onMenuClick($event)"></app-sidebar-menu> -->
+<div class="app-shell" [class.dark-theme]="theme.isDark()">
   <app-sidebar-menu [isOpen]="sidebarOpen" (onClose)="closeSidebar()">
   </app-sidebar-menu>
 

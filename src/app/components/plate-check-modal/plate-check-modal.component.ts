@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-plate-check-modal',
@@ -23,6 +24,13 @@ export class PlateCheckModalComponent {
     plate: '-',
     type: '-'
   };
+  darkMode = false;
+
+  constructor(public theme: ThemeService) {}
+  
+    ngOnInit() {
+      this.darkMode = this.theme.isDark();
+    }
 
   closeModal() {
     this.close.emit();

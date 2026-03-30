@@ -7,11 +7,7 @@ import { PaymentpageComponent } from './pages/paymentpage/paymentpage.component'
 import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  // { path: 'login', component: LoginComponent },
-  // { path: 'home', component: HomeComponent },
-  // { path: 'detail', component: DetailComponent},
-  // { path: 'paymentpage', component: PaymentpageComponent}
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   // ✅ Layout ปกติ (มี sidebar + footer)
   {

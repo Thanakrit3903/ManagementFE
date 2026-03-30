@@ -1,16 +1,23 @@
-import { Component, EventEmitter, Input, Output, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-request-modal',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './request-modal.component.html',
-  styleUrls: ['./request-modal.component.scss']
+  styleUrls: ['./request-modal.component.scss'],
 })
 export class RequestModalComponent {
-
   @Input() open = false;
   @Output() close = new EventEmitter<void>();
   @Output() submit = new EventEmitter<any>();
@@ -22,6 +29,14 @@ export class RequestModalComponent {
   detail = '';
 
   previewUrl: string | null = null;
+
+  darkMode = false;
+
+  constructor(public theme: ThemeService) {}
+
+  ngOnInit() {
+    this.darkMode = this.theme.isDark();
+  }
 
   closeModal() {
     this.close.emit();
@@ -42,7 +57,7 @@ export class RequestModalComponent {
     this.submit.emit({
       phone: this.phone,
       title: this.title,
-      detail: this.detail
+      detail: this.detail,
     });
   }
 }
