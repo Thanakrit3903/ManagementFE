@@ -1,9 +1,44 @@
-.footer {
-  background: #ffffff;
-  padding: 1.5rem 1rem;
-  border-top: 1px solid #e5e7eb;
+/* =========================
+   COLOR TOKENS
+========================= */
+:root {
+  --footer-bg: #ffffff;
+  --footer-border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --phone-color: #2563eb;
+}
 
+/* 🌙 AUTO DARK MODE (ตาม OS) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --footer-bg: #111827;
+    --footer-border: #374151;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --phone-color: #60a5fa;
+  }
+}
+
+/* 🌙 MANUAL DARK MODE (override) */
+body.dark-mode {
+  --footer-bg: #111827;
+  --footer-border: #374151;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --phone-color: #60a5fa;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  background: var(--footer-bg);
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--footer-border);
   box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+
+  transition: all 0.3s ease;
 }
 
 .footer-content {
@@ -24,18 +59,18 @@
 
   .label {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--text-muted);
   }
 
   strong {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #111827;
+    color: var(--text-main);
   }
 
   .phone {
     font-size: 0.9rem;
-    color: #2563eb;
+    color: var(--phone-color);
     font-weight: 500;
   }
 }
@@ -44,7 +79,7 @@
 .divider {
   width: 40px;
   height: 2px;
-  background: #e5e7eb;
+  background: var(--footer-border);
   margin: 6px auto;
   border-radius: 999px;
 }
@@ -54,32 +89,11 @@
   p {
     margin: 0;
     font-size: 0.8rem;
-    color: #6b7280;
+    color: var(--text-muted);
   }
 
   strong {
     font-size: 0.9rem;
-    color: #111827;
-  }
-}
-
-/* 🌙 DARK MODE */
-body.dark-mode {
-  .footer {
-    background: #111827;
-    border-color: #374151;
-  }
-
-  .label,
-  .app-info p {
-    color: #9ca3af;
-  }
-
-  strong {
-    color: #f9fafb;
-  }
-
-  .phone {
-    color: #60a5fa;
+    color: var(--text-main);
   }
 }

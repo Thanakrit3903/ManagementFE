@@ -13,3 +13,12 @@ export interface AppMenuItem {
   icon: string;
   bgClass: string;
 }
+
+export interface RoomItem {
+  id: string;
+  roomNo: string;
+  building: string;
+  floor: string;
+  status: 'active' | 'pending' | 'inactive';
+  note?: string;
+}

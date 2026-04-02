@@ -5,6 +5,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { DetailComponent } from './pages/detail/detail.component';
 import { PaymentpageComponent } from './pages/paymentpage/paymentpage.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RoompageComponent } from './pages/roompage/roompage.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,6 +18,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'detail', component: DetailComponent },
       { path: 'payment', component: PaymentpageComponent },
+      { path: 'room', component: RoompageComponent }
     ],
   },
   {

@@ -1,0 +1,48 @@
+<div class="page">
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>สวัสดี, {{ userName }}</h1>
+            <p>เลือกห้องเพื่อเข้าสู่ระบบ</p>
+        </div>
+
+        <!-- CARD -->
+        <div class="card">
+
+            <div class="card-header">
+                <h2>รายการห้องพัก</h2>
+                <span>{{ rooms.length }} ห้อง</span>
+            </div>
+
+            <!-- LIST -->
+            <div
+                class="room-item"
+                *ngFor="let room of rooms"
+                [class.active]="selectedRoomId() === room.id"
+                (click)="selectRoom(room.id)">
+
+                <div class="room-main">
+                    <strong>{{ room.roomNo }}</strong>
+                    <span>{{ room.building }}</span>
+                </div>
+
+                <div class="room-sub">
+                    ชั้น {{ room.floor }}
+                </div>
+
+                <!-- ✅ BUTTON -->
+                <button
+                    class="arrow-btn"
+                    (click)="goToHome(room, $event)">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

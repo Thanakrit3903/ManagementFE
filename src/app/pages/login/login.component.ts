@@ -1,16 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './login.component.html',
-//   styleUrl: './login.component.scss'
-// })
-// export class LoginComponent {
-
-// }
-
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -19,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from "@angular/router";
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -40,28 +27,42 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
-      tenantCode: [
-        '',
-        [Validators.required, Validators.pattern(/^\d{3}-\d{2}$/)],
-      ],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  get tenantCodeCtrl() {
-    return this.loginForm.get('tenantCode')!;
+  get usernameCtrl() {
+    return this.loginForm.get('username')!;
   }
 
-  get showError(): boolean {
+  get passwordCtrl() {
+    return this.loginForm.get('password')!;
+  }
+
+  get showUsernameError(): boolean {
     return (
-      this.tenantCodeCtrl.invalid &&
-      (this.tenantCodeCtrl.dirty || this.tenantCodeCtrl.touched)
+      this.usernameCtrl.invalid &&
+      (this.usernameCtrl.dirty || this.usernameCtrl.touched)
     );
   }
 
-  getErrorMessage(): string {
-    if (this.tenantCodeCtrl.hasError('required')) return 'กรุณากรอกรหัสลูกบ้าน';
-    if (this.tenantCodeCtrl.hasError('pattern'))
-      return 'รูปแบบไม่ถูกต้อง เช่น 101-03';
+  get showPasswordError(): boolean {
+    return (
+      this.passwordCtrl.invalid &&
+      (this.passwordCtrl.dirty || this.passwordCtrl.touched)
+    );
+  }
+
+  getUsernameError(): string {
+    if (this.usernameCtrl.hasError('required')) return 'กรุณากรอก Username';
+    return '';
+  }
+
+  getPasswordError(): string {
+    if (this.passwordCtrl.hasError('required')) return 'กรุณากรอก Password';
+    if (this.passwordCtrl.hasError('minlength'))
+      return 'Password อย่างน้อย 6 ตัว';
     return '';
   }
 
@@ -70,13 +71,22 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
       return;
     }
+
     this.loginError.set('');
     this.isLoading.set(true);
 
     setTimeout(() => {
       this.isLoading.set(false);
-      console.log('Login:', this.tenantCodeCtrl.value);
-      this.router.navigate(['/home']);
-    }, 1800);
+
+      const { username, password } = this.loginForm.value;
+      console.log('Login:', username, password);
+
+      // mock login
+      if (username === 'admin' && password === '123456') {
+        this.router.navigate(['/room']);
+      } else {
+        this.loginError.set('Username หรือ Password ไม่ถูกต้อง');
+      }
+    }, 1500);
   }
 }
