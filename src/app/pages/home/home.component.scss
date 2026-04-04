@@ -174,3 +174,47 @@
 :host-context(body.dark) .page-subtitle {
   color: #94a3b8;
 }
+
+.tile-amount {
+  margin-top: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.amount-label {
+  font-size: 0.65rem;
+  opacity: 0.85;
+}
+
+.amount-value {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.app-tile.featured {
+  grid-column: span 2;
+  min-height: 150px;
+}
+
+/* ❌ ค้างชำระ = แดง/ส้ม เด่น */
+.tile-amount.due {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #fff;
+
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+}
+
+/* ✅ ชำระแล้ว = เขียว ชัด */
+.tile-amount.paid {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.35);
+}

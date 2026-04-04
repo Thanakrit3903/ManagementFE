@@ -19,7 +19,7 @@
         *ngFor="let item of menuItems"
         type="button"
         class="app-tile"
-        [ngClass]="item.bgClass"
+        [ngClass]="[item.bgClass, item.id === 'Detail' ? 'featured' : '']"
         (click)="onMenuClick(item.id)">
         <div class="tile-icon">
           <i [class]="item.icon"></i>
@@ -28,6 +28,15 @@
         <div class="tile-body">
           <div class="tile-title">{{ item.title }}</div>
           <div class="tile-subtitle">{{ item.subtitle }}</div>
+          <div
+            *ngIf="item.amount !== undefined"
+            class="tile-amount"
+            [ngClass]="item.status === 'due' ? 'due' : 'paid'">
+            <div class="amount-label">ยอดค้างชำระ</div>
+            <div class="amount-value">
+              ฿{{ item.amount | number:'1.2-2' }}
+            </div>
+          </div>
         </div>
       </button>
     </section>

@@ -39,9 +39,11 @@ export class HomeComponent {
     {
       id: 'Detail',
       title: 'รายละเอียด',
-      subtitle: 'ข้อมูลหลักของระบบ',
+      subtitle: 'ข้อมูลยอดค้างชำระค่าบริการ',
       icon: 'bi bi-wallet2',
       bgClass: 'tile-blue',
+      amount: 467.8,
+      status: 'paid',
     },
     {
       id: 'transfer',
@@ -104,7 +106,7 @@ export class HomeComponent {
   constructor(
     private router: Router,
     private toastr: ToastrService,
-    public theme: ThemeService
+    public theme: ThemeService,
   ) {}
 
   ngOnInit() {

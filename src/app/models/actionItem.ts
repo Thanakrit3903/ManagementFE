@@ -12,6 +12,8 @@ export interface AppMenuItem {
   subtitle: string;
   icon: string;
   bgClass: string;
+  amount?: number;
+  status?: 'due' | 'paid' | 'overdue';
 }
 
 export interface RoomItem {
